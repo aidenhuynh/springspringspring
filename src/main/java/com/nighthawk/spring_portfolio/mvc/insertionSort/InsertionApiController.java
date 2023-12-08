@@ -27,12 +27,26 @@ public class InsertionApiController {
     }
 
 
+    @PostMapping("/while/time")
+    public ResponseEntity<Insertion> whileTime(@RequestBody ArrayList<Integer> list) {
+
+        WhileSort whileSort = new WhileSort();
+
+        whileSort.runSort(list);
+
+        repository.save(whileSort);
+
+        return new ResponseEntity<>(whileSort, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
+    }
+
     @PostMapping("/while")
     public ResponseEntity<Insertion> whileSort(@RequestBody ArrayList<Integer> list) {
 
         WhileSort whileSort = new WhileSort();
 
         whileSort.runSort(list);
+
+        repository.save(whileSort);
 
         return new ResponseEntity<>(whileSort, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
     }

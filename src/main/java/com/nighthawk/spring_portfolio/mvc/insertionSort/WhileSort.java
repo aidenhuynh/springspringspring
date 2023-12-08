@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import jakarta.persistence.*;
 
 
+@Entity
 public class WhileSort extends Insertion {
     public WhileSort(){
         super("Insertion Sort While Loop");
