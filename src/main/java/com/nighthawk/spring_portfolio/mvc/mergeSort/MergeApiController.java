@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController // annotation to simplify the creation of RESTful web services
 @RequestMapping("/api/bubble")  // all requests in file begin with this URI
-public class BubbleApiController {
+public class MergeApiController {
 
     // Autowired enables Control to connect URI request and POJO Object to easily for Database CRUD operations
     @Autowired
