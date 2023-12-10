@@ -55,7 +55,7 @@ public class InsertionApiController {
     @PostMapping("/while")
     public ResponseEntity<Insertion> whileSort(@RequestBody ArrayList<Integer> list) {
 
-        WhileSort whileSort = new WhileSort();
+        WhileSortInsertion whileSort = new WhileSortInsertion();
 
         whileSort.runSort(list);
 

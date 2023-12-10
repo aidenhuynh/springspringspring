@@ -30,7 +30,7 @@ public class SelectionApiController {
     @PostMapping("/while/time")
     public ResponseEntity<Selection> whileTime(@RequestBody ArrayList<Integer> list) {
 
-        WhileSort whileSort = new WhileSort();
+        WhileSortSelection whileSort = new WhileSortSelection();
 
         whileSort.runSort(list);
 
@@ -42,7 +42,7 @@ public class SelectionApiController {
     @PostMapping("/while")
     public ResponseEntity<Selection> whileSort(@RequestBody ArrayList<Integer> list) {
 
-        WhileSort whileSort = new WhileSort();
+        WhileSortSelection whileSort = new WhileSortSelection();
 
         whileSort.runSort(list);
 

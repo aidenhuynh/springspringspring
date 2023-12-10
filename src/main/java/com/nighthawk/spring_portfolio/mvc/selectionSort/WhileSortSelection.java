@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.insertionSort;
+package com.nighthawk.spring_portfolio.mvc.selectionSort;
 
 
 import lombok.AllArgsConstructor;
@@ -11,8 +11,8 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class WhileSort extends Insertion {
-    public WhileSort(){
+public class WhileSortSelection extends Selection {
+    public WhileSortSelection(){
         super("Insertion Sort While Loop");
     }
 
