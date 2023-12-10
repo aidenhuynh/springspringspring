@@ -31,25 +31,25 @@ public class InsertionApiController {
     @PostMapping("/while/time")
     public ResponseEntity<ArrayList<Long>> whileTime(@RequestBody ArrayList<Integer> list) {
 
-        ArrayList<Long> times = new ArrayList<>();
+        ArrayList<Long> avgTimes = new ArrayList<>();
 
         Collections.sort(list);
 
         for (Insertion i : repository.findAll()){
             if (i.getList().equals(list) && i.getName().equals("Insertion Sort While Loop")){
-                times.add(i.getTimes().get(0));
+                avgTimes.add(i.getAvgTime());
             }
         }
 
-        if (times.size() > 2) {
-            Collections.sort(times);
+        if (avgTimes.size() > 2) {
+            Collections.sort(avgTimes);
 
             // Remove the smallest and largest values
-            times.remove(0); // Remove the smallest
-            times.remove(times.size() - 1); // Remove the largest
+            avgTimes.remove(0); // Remove the smallest
+            avgTimes.remove(avgTimes.size() - 1); // Remove the largest
         }
 
-        return new ResponseEntity<>(times, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
+        return new ResponseEntity<>(avgTimes, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
     }
 
     @PostMapping("/while")
@@ -57,7 +57,11 @@ public class InsertionApiController {
 
         WhileSortInsertion whileSort = new WhileSortInsertion();
 
-        whileSort.runSort(list);
+        for (int i = 0; i < 10; i ++){
+            whileSort.runSort(list);
+        }
+
+        // Collections.sort(whileSort.times);
 
         repository.save(whileSort);
 
