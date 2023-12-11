@@ -38,6 +38,7 @@ public class RecursiveSortSelection extends Selection {
         }
         
         // Swap minimum with initial index
+        super.comparisons += 1;
         if (minIndex != n) {
             int temp = arr.get(n);
             super.swaps.add(arr.get(minIndex));

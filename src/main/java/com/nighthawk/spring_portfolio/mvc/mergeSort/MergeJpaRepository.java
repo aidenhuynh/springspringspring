@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.bubbleSort;
+package com.nighthawk.spring_portfolio.mvc.mergeSort;
 
 import java.util.List;
 

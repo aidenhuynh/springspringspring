@@ -38,9 +38,9 @@ public class ForSortSelection extends Selection {
             }
     
             // If the minimum is different from the current value, swap them
+            super.comparisons += 1;
             if (minIndex != i) {
                 super.swaps.add(arr.get(minIndex));
-                super.comparisons += 1;
                 int temp = arr.get(i);
                 super.swaps.add(temp);
                 arr.set(i,arr.get(minIndex));

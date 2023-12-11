@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.bubbleSort;
+package com.nighthawk.spring_portfolio.mvc.mergeSort;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,10 +19,10 @@ public abstract class Merge {
 
     public String name;
     public ArrayList<Integer> list = new ArrayList<>();
-    public int comparisons = 0;
+    public int comparisons;
     public ArrayList<Long> times = new ArrayList<>();
     public int iterations;
-    public ArrayList<Integer> Swaps = new ArrayList<>();
+    public ArrayList<Integer> swaps = new ArrayList<>();
 
     public Merge(String name){
         this.name = name;
