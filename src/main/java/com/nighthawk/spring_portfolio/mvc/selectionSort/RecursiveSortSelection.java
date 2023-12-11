@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Entity
 public class RecursiveSortSelection extends Selection {
     public RecursiveSortSelection(){
-        super("Insertion Sort Recursive Loop");
+        super("Selection Sort Recursive Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr, int n){

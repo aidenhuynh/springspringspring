@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Entity
 public class ForSortSelection extends Selection {
     public ForSortSelection(){
-        super("Insertion Sort For Loop");
+        super("Selection Sort For Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr){

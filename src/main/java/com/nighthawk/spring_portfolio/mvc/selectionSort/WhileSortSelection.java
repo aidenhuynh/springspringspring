@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Entity
 public class WhileSortSelection extends Selection {
     public WhileSortSelection(){
-        super("Insertion Sort While Loop");
+        super("Selection Sort While Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr){
