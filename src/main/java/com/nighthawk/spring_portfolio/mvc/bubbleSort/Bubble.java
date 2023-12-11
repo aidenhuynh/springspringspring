@@ -19,10 +19,10 @@ public abstract class Bubble {
 
     public String name;
     public ArrayList<Integer> list = new ArrayList<>();
-    public int comparisons = 0;
+    public int comparisons;
     public ArrayList<Long> times = new ArrayList<>();
     public int iterations;
-    public ArrayList<Integer> Swaps = new ArrayList<>();
+    public ArrayList<Integer> swaps = new ArrayList<>();
 
     public Bubble(String name){
         this.name = name;
