@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.bubbleSort;
+package com.nighthawk.spring_portfolio.mvc.selectionSort;
 
 
 import lombok.AllArgsConstructor;
@@ -11,8 +11,8 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class ForSortBubble extends Bubble {
-    public ForSortBubble(){
+public class ForSortSelection extends Selection {
+    public ForSortSelection(){
         super("Insertion Sort for Loop");
     }
 
