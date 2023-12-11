@@ -1,4 +1,4 @@
-package com.nighthawk.spring_portfolio.mvc.bubbleSort;
+package com.nighthawk.spring_portfolio.mvc.selectionSort;
 
 
 import lombok.AllArgsConstructor;
@@ -11,15 +11,13 @@ import jakarta.persistence.*;
 
 
 @Entity
-public class ForSortBubble extends Bubble {
-    public ForSortBubble(){
-        super("Insertion Sort for Loop");
+public class ForSortSelection extends Selection {
+    public ForSortSelection(){
+        super("Insertion Sort For Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr){
-        super.Swaps.clear();
-        super.iterations = 0;
-        super.comparisons = 0;
+        super.list = arr;
         long startTime = System.nanoTime();
         int n = arr.size();
         
@@ -27,9 +25,12 @@ public class ForSortBubble extends Bubble {
         for (int i = 0; i < n - 1; i ++) {
             // Define the minimum index by setting it to the first element not iterated yet
             int minIndex = i;
+            super.iterations += 1;
     
             // For loop to iterate through all elements after previous run
             for (int j = i + 1; j < n; j ++) {
+                super.iterations += 1;
+                super.comparisons += 1;
                 // If selected value is lower than current minimum, set the new minimum
                 if (arr.get(j) < arr.get(minIndex)) {
                     minIndex = j;
@@ -38,40 +39,15 @@ public class ForSortBubble extends Bubble {
     
             // If the minimum is different from the current value, swap them
             if (minIndex != i) {
-                super.Swaps.add(arr.get(j));
-                super.Swaps.add(i);
-                super.iterations += 1;
+                super.swaps.add(arr.get(minIndex));
                 super.comparisons += 1;
-
                 int temp = arr.get(i);
+                super.swaps.add(temp);
                 arr.set(i,arr.get(minIndex));
                 arr.set(minIndex, temp);
             }
         }
-        
-            return arr;
-    }
-        
-        
-        while (i < n) {
-            int key = arr.get(i);
-            int j = i - 1;
-            super.iterations += 1;
-
-            while (j >= 0 && arr.get(j) > key) {
-                super.Swaps.add(arr.get(j));
-                super.Swaps.add(key);
-                super.iterations += 1;
-                super.comparisons += 1;
-                arr.set(j + 1, arr.get(j));
-                j = j - 1;
-            }
-            arr.set(j + 1, key);
-            i++;
-        }
-        super.list = arr;
-        
         super.times.add(System.nanoTime() - startTime);
-        return arr;
+            return arr;
     }
 }

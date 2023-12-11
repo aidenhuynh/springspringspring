@@ -17,9 +17,6 @@ public class WhileSortSelection extends Selection {
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr){
-        super.Swaps.clear();
-        super.iterations = 0;
-        super.comparisons = 0;
         long startTime = System.nanoTime();
         int n = arr.size();
         int i = 1;
@@ -30,8 +27,8 @@ public class WhileSortSelection extends Selection {
             super.iterations += 1;
 
             while (j >= 0 && arr.get(j) > key) {
-                super.Swaps.add(arr.get(j));
-                super.Swaps.add(key);
+                super.swaps.add(arr.get(j));
+                super.swaps.add(key);
                 super.iterations += 1;
                 super.comparisons += 1;
                 arr.set(j + 1, arr.get(j));
