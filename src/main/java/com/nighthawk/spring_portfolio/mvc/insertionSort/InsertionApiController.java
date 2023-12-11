@@ -52,6 +52,31 @@ public class InsertionApiController {
         return new ResponseEntity<>(avgTimes, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
     }
 
+    @PostMapping("/for/time")
+    public ResponseEntity<ArrayList<Long>> forTime(@RequestBody ArrayList<Integer> list) {
+
+        ArrayList<Long> avgTimes = new ArrayList<>();
+
+        Collections.sort(list);
+
+        for (Insertion i : repository.findAll()){
+            if (i.getList().equals(list) && i.getName().equals("Insertion Sort For Loop")){
+                avgTimes.add(i.getAvgTime());
+            }
+        }
+
+        if (avgTimes.size() > 2) {
+            Collections.sort(avgTimes);
+
+            // Remove the smallest and largest values
+            avgTimes.remove(0); // Remove the smallest
+            avgTimes.remove(avgTimes.size() - 1); // Remove the largest
+        }
+
+        return new ResponseEntity<>(avgTimes, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
+    }
+
+
     @PostMapping("/while")
     public ResponseEntity<Insertion> whileSort(@RequestBody ArrayList<Integer> list) {
 
@@ -61,11 +86,33 @@ public class InsertionApiController {
             whileSort.runSort(list);
         }
 
-        // Collections.sort(whileSort.times);
+        Collections.sort(whileSort.times);
+
+        whileSort.times.remove(whileSort.times.size() - 1);       
+        whileSort.times.remove(whileSort.times.size() - 1);
 
         repository.save(whileSort);
 
         return new ResponseEntity<>(whileSort, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
+    }
+
+    @PostMapping("/for")
+    public ResponseEntity<Insertion> forSort(@RequestBody ArrayList<Integer> list) {
+
+        ForSortInsertion forSort = new ForSortInsertion();
+
+        for (int i = 0; i < 10; i ++){
+            forSort.runSort(list);
+        }
+
+        Collections.sort(forSort.times);
+
+        forSort.times.remove(forSort.times.size() - 1);       
+        forSort.times.remove(forSort.times.size() - 1);
+
+        repository.save(forSort);
+
+        return new ResponseEntity<>(forSort, HttpStatus.OK);  // OK HTTP response: status code, headers, and body
     }
 
 }

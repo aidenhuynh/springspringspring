@@ -21,8 +21,8 @@ public abstract class Insertion {
     public ArrayList<Integer> list = new ArrayList<>();
     public int comparisons = 0;
     public ArrayList<Long> times = new ArrayList<>();
-    public int iterations;
-    public ArrayList<Integer> Swaps = new ArrayList<>();
+    public int iterations = 0;
+    public ArrayList<Integer> swaps = new ArrayList<>();
 
     public Insertion(String name){
         this.name = name;
