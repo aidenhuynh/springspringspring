@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 @Entity
 public class RecursiveSortBubble extends Bubble {
     public RecursiveSortBubble(){
-        super("Insertion Sort Recursive Loop");
+        super("Bubble Sort Recursive Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr, int n){
@@ -21,9 +21,10 @@ public class RecursiveSortBubble extends Bubble {
         super.iterations = 0;
         super.comparisons = 0;
         long startTime = System.nanoTime();
+        int k = arr.size();
 
         // If passing the last element in the array, stop
-        if (n == arr.size() - 1) {
+        if (n == k - 1) {
             return arr;
         }
         
@@ -31,7 +32,7 @@ public class RecursiveSortBubble extends Bubble {
         int minIndex = n;
         
         // If different value is less than current minimum, set minIndex to that value's index
-        for (int j = n + 1; j < arr.length; j++) {
+        for (int j = n + 1; j < k; j++) {
             if (arr.get(j) < arr.get(minIndex)) {
                 minIndex = j;
             }
@@ -45,10 +46,9 @@ public class RecursiveSortBubble extends Bubble {
         }
         
         // Recursive call for the next index
-        bubbleRecur(arr, n + 1);
+        runSort(arr, n + 1);
         
         return arr;
     }
-    
 }
 

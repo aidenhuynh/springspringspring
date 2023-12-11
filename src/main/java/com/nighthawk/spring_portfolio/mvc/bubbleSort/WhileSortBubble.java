@@ -13,36 +13,38 @@ import jakarta.persistence.*;
 @Entity
 public class WhileSortBubble extends Bubble {
     public WhileSortBubble(){
-        super("Insertion Sort While Loop");
+        super("Bubble Sort While Loop");
     }
 
     public ArrayList<Integer> runSort(ArrayList<Integer> arr){
-        super.Swaps.clear();
-        super.iterations = 0;
-        super.comparisons = 0;
-        long startTime = System.nanoTime();
+        // While loop to iterate through whole array, except last value because it will already be sorted by then
+        int i = 0;
         int n = arr.size();
-        int i = 1;
-        
-        while (i < n) {
-            int key = arr.get(i);
-            int j = i - 1;
-            super.iterations += 1;
-
-            while (j >= 0 && arr.get(j) > key) {
-                super.Swaps.add(arr.get(j));
-                super.Swaps.add(key);
-                super.iterations += 1;
-                super.comparisons += 1;
-                arr.set(j + 1, arr.get(j));
-                j = j - 1;
+        while (i < n - 1) {
+            // Define the minimum index by setting it to the first element not iterated yet
+            int minIndex = i;
+    
+            // While loop to iterate through all elements after previous run
+            int j = i + 1;
+            while (j < n) {
+                // If selected value is lower than current minimum, set the new minimum
+                if (arr.get(j) < arr.get(minIndex)) {
+                    minIndex = j;
+                }
+    
+                j += 1;
             }
-            arr.set(j + 1, key);
-            i++;
+    
+            // If the minimum is different from the current value, swap them
+            if (minIndex != i) {
+                int temp = arr.get(i);
+                arr.set(i, arr.get(minIndex));
+                arr.set(minIndex, temp);
+            }
+    
+            i += 1;
         }
-        super.list = arr;
         
-        super.times.add(System.nanoTime() - startTime);
         return arr;
     }
 }
